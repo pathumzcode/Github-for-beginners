@@ -1,0 +1,196 @@
+name: Copilot CLI Assessment Approval
+
+on:
+  issues:
+    types: [closed]
+
+jobs:
+  process-approval:
+    runs-on: ubuntu-latest
+
+    permissions:
+      issues: write
+
+    steps:
+
+      # --------------------------------------------------
+      # 1. Check whether this is a completion submission
+      # --------------------------------------------------
+
+      - name: Check submission
+        id: check-submission
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+
+            const labels = issue.labels.map(label =>
+              label.name.toLowerCase()
+            );
+
+            if (labels.includes('completion')) {
+              core.setOutput('is_submission', 'true');
+            } else {
+              core.setOutput('is_submission', 'false');
+            }
+
+
+      # --------------------------------------------------
+      # 2. Check who closed the issue
+      # --------------------------------------------------
+
+      - name: Verify reviewer
+        id: verify-reviewer
+        if: steps.check-submission.outputs.is_submission == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const closedBy = context.payload.sender.login;
+
+            const reviewer = 'pathumzcode';
+
+            if (closedBy.toLowerCase() === reviewer.toLowerCase()) {
+              core.setOutput('approved', 'true');
+            } else {
+              core.setOutput('approved', 'false');
+            }
+
+
+      # --------------------------------------------------
+      # 3. Get student's GitHub username
+      # --------------------------------------------------
+
+      - name: Get student username
+        id: get-student
+        if: steps.check-submission.outputs.is_submission == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const username = context.payload.issue.user.login;
+
+            core.setOutput('username', username);
+
+
+      # --------------------------------------------------
+      # 4. Add approval labels
+      # --------------------------------------------------
+
+      - name: Add approval labels
+        if: steps.verify-reviewer.outputs.approved == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: [
+                'approved',
+                'reviewed',
+                'badge-assigned'
+              ]
+            });
+
+
+      # --------------------------------------------------
+      # 5. Remove review-required label
+      # --------------------------------------------------
+
+      - name: Remove review-required label
+        if: steps.verify-reviewer.outputs.approved == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            try {
+              await github.rest.issues.removeLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                name: 'review-required'
+              });
+            } catch (error) {
+              console.log('review-required label was not found.');
+            }
+
+
+      # --------------------------------------------------
+      # 6. Post congratulations message
+      # --------------------------------------------------
+
+      - name: Post completion message
+        if: steps.verify-reviewer.outputs.approved == 'true'
+        uses: actions/github-script@v7
+        env:
+          STUDENT: ${{ steps.get-student.outputs.username }}
+        with:
+          script: |
+            const student = process.env.STUDENT;
+
+            const message = `## 🎉 Congratulations @${student}!
+
+            Your **GitHub Copilot CLI for Beginners Assessment** has been successfully reviewed and approved! 🚀
+
+            ### ✅ Assessment Status
+
+            **Status:** 🟢 Approved
+            **Reviewed by:** @pathumzcode
+            **Assessment:** GitHub Copilot CLI for Beginners
+
+            ---
+
+            ### 🏆 Completion Badge
+
+            You have successfully earned your **GitHub Copilot CLI Assessment Completion Badge**! 🎉
+
+            ![GitHub Copilot CLI Completion Badge](https://github.com/pathumzcode/Copilot-CLI-for-beginners/raw/main/images/badge.png)
+
+            ---
+
+            ### 💙 Thank You!
+
+            Thank you for participating in the **GitHub Copilot CLI for Beginners Assessment**.
+            We appreciate your effort, participation, and willingness to learn.
+
+            Follow me for more updates - https://github.com/pathumzcode
+
+            **Happy Coding! ✨**
+            `;
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: message
+            });
+
+
+      # --------------------------------------------------
+      # 7. Reopen if someone else closes the issue
+      # --------------------------------------------------
+
+      - name: Reopen unauthorized closure
+        if: steps.verify-reviewer.outputs.approved == 'false'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: 'open'
+            });
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `## ⚠️ Submission Reopened
+
+              This assessment submission was closed by an unauthorized user.
+
+              Only @pathumzcode can approve and close **GitHub Copilot CLI for Beginners** assessment submissions.
+
+              The issue has been automatically reopened and remains pending review.
+
+              Please wait for the assessment maintainer to complete the review.`
+            });

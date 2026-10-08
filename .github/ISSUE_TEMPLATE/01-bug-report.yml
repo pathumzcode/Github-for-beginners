@@ -1,0 +1,112 @@
+name: Bug Report
+description: Report an issue or error encountered while following the GitHub Copilot CLI course.
+title: "[BUG] "
+labels:
+  - bug
+  - copilot-cli
+assignees:
+  - pathumzcode
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Bug Report
+
+        Thank you for helping improve the GitHub Copilot CLI course.
+
+        Please provide enough information to help us understand and reproduce the issue.
+
+  - type: input
+    id: course-section
+    attributes:
+      label: Course Section
+      description: Which module, lesson, or hands-on activity were you following?
+      placeholder: "e.g., Module 3 - Creating Custom Agents"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the problem you encountered.
+      placeholder: "Describe the issue clearly."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+      placeholder: "Describe the expected result."
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What happened instead?
+      placeholder: "Describe what actually happened."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Provide the steps required to reproduce the issue.
+      placeholder: |
+        1. Open...
+        2. Run...
+        3. Enter...
+        4. Observe...
+    validations:
+      required: true
+
+  - type: textarea
+    id: error
+    attributes:
+      label: Error Message
+      description: Paste the error message if applicable.
+      render: shell
+
+  - type: input
+    id: copilot-version
+    attributes:
+      label: GitHub Copilot CLI Version
+      placeholder: "e.g., latest"
+
+  - type: input
+    id: operating-system
+    attributes:
+      label: Operating System
+      placeholder: "e.g., Windows 11"
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Add screenshot links, image references, or a short description of any visuals that help explain the issue.
+      placeholder: "Paste a screenshot URL or describe the screenshot."
+
+  - type: textarea
+    id: additional-information
+    attributes:
+      label: Additional Information
+      description: Provide any other relevant information.
+      placeholder: "Add any additional context here."
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have searched the existing issues.
+          required: true
+        - label: I have provided enough information to understand the issue.
+          required: true
+        - label: I have removed passwords, API keys, access tokens, and other sensitive information.
+          required: true

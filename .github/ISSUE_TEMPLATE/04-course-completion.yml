@@ -1,0 +1,177 @@
+name: Submission
+description: Submit your GitHub Copilot CLI assessment completion evidence for review.
+title: "[SUBMISSION] Your Name"
+labels:
+  - completion
+  - review-required
+assignees:
+  - pathumzcode
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+
+        ## GitHub Copilot CLI Assessment Completion Submission
+
+        Thank you for submitting your assessment! Please fill out the details below.
+
+  - type: input
+    id: full-name
+    attributes:
+      label: Full Name
+      description: Enter your full name.
+      placeholder: "e.g., John Doe"
+    validations:
+      required: true
+
+  - type: input
+    id: email
+    attributes:
+      label: Email Address
+      description: Enter a valid email address used for the assessment.
+      placeholder: "e.g., you@example.com"
+    validations:
+      required: true
+
+  - type: input
+    id: university
+    attributes:
+      label: University / Institution
+      description: Enter your university, institution, or organization.
+      placeholder: "e.g. SLIIT"
+    validations:
+      required: true
+
+  - type: input
+    id: github-username
+    attributes:
+      label: GitHub Username
+      description: Enter your GitHub username without the @ symbol.
+      placeholder: "e.g., username"
+    validations:
+      required: true
+
+
+  - type: markdown
+    attributes:
+      value: |
+
+        ## Hands-on Activity Evidence
+
+        Please upload the required screenshots showing your hands-on work.
+
+  - type: textarea
+    id: cli-screenshot
+    attributes:
+      label: Screenshot 1 — GitHub Copilot CLI
+      description: Paste the URL or describe the screenshot showing GitHub Copilot CLI running successfully.
+      placeholder: "Add the screenshot URL or a brief description."
+    validations:
+      required: true
+
+  - type: textarea
+    id: agent-screenshot
+    attributes:
+      label: Screenshot 2 — Custom Agent
+      description: Paste the URL or describe the screenshot showing the custom agent you created.
+      placeholder: "Add the screenshot URL or a brief description."
+    validations:
+      required: true
+
+  - type: textarea
+    id: task-screenshot
+    attributes:
+      label: Screenshot 3 — Task Completed by the Agent
+      description: Paste the URL or describe the screenshot showing your custom agent performing and successfully completing the assigned task.
+      placeholder: "Add the screenshot URL or a brief description."
+    validations:
+      required: true
+
+  - type: input
+    id: hands-on-activity
+    attributes:
+      label: Hands-on Activity
+      description: Briefly describe the hands-on activity you completed.
+      placeholder: "Describe what you built or completed."
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+
+        ## Social Media Evidence (Optional)
+
+        Share your assessment experience or completion post on social media.
+
+        **LinkedIn:** Tag **Pathum Lakshan Bandara**
+        **X:** Tag **Pathum Lakshan Bandara (`@pathumztweet`)**
+
+  - type: input
+    id: linkedin
+    attributes:
+      label: LinkedIn Post URL
+      description: Provide the URL of your LinkedIn post.
+      placeholder: "Paste your LinkedIn post URL here."
+
+  - type: input
+    id: x-post
+    attributes:
+      label: X Post URL
+      description: Provide the URL of your X post.
+      placeholder: "Paste your X post URL here."
+
+  - type: markdown
+    attributes:
+      value: |
+
+        ## Reflection
+
+  - type: input
+    id: learning
+    attributes:
+      label: What did you learn from this activity?
+      description: Explain the key concepts, commands, or skills you learned.
+      placeholder: "Describe what you learned."
+
+  - type: input
+    id: real-world-use
+    attributes:
+      label: How could you use GitHub Copilot CLI or custom agents in a real-world workflow?
+      description: Describe a practical use case.
+      placeholder: "Explain how you could apply these skills in a real-world development workflow."
+      
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Submission Checklist
+      description: Confirm each requirement before submitting.
+      options:
+        - label: I have attached the GitHub Copilot CLI screenshot.
+          required: true
+        - label: I have attached the custom agent screenshot.
+          required: true
+        - label: I have attached the screenshot showing the completed task.
+          required: true
+        - label: I have completed all required hands-on activities.
+          required: true
+        - label: I have not included passwords, API keys, access tokens, or other sensitive information.
+          required: true
+        - label: The submitted screenshots and information represent my own work.
+          required: true
+        - label: I have provided my LinkedIn post.
+        - label: I have provided my X post.
+        - label: I have completed both reflection questions.
+
+  - type: markdown
+    attributes:
+      value: |
+
+        ## Submission Review
+
+        This submission will be reviewed by: **Pathum Lakshan Bandara (`@pathumzcode`)**
+
+        If the submission successfully meets all assessment requirements, will approve the submission and issue the GitHub Copilot CLI assessment Completion Badge.
+
+        **Please do not close this issue yourself. The assessment maintainer will close the issue after completing the review.**

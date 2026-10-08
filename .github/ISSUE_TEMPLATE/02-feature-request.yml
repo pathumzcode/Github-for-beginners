@@ -1,0 +1,87 @@
+name: Feature Request
+description: Suggest a new feature, improvement, lesson, or hands-on activity for the course.
+title: "[FEATURE] "
+labels:
+  - enhancement
+  - course
+assignees:
+  - pathumzcode
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Feature Request
+
+        Thank you for helping improve the GitHub Copilot CLI course.
+
+        Use this form to suggest new features, lessons, examples, activities, or improvements.
+
+  - type: input
+    id: feature-title
+    attributes:
+      label: Feature or Improvement
+      description: Give your suggestion a short and clear title.
+      placeholder: "e.g., Add a GitHub Copilot CLI project activity"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or Motivation
+      description: What problem would this feature or improvement solve?
+      placeholder: "Explain why this would be useful."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: Describe how you think this could be implemented.
+      placeholder: "Describe your proposed solution."
+    validations:
+      required: true
+
+  - type: textarea
+    id: learning-benefit
+    attributes:
+      label: Learning Benefit
+      description: How would this help learners?
+      placeholder: "Explain how learners would benefit."
+    validations:
+      required: true
+
+  - type: textarea
+    id: example
+    attributes:
+      label: Example
+      description: Provide an example of how the feature or activity could work.
+      placeholder: "Provide an example if possible."
+
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Supporting Files or Screenshots
+      description: Add links or brief notes to any supporting screenshots or files.
+      placeholder: "Paste a URL or describe the supporting resource."
+
+  - type: textarea
+    id: additional-information
+    attributes:
+      label: Additional Information
+      description: Add any other relevant information.
+      placeholder: "Additional details."
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have searched existing issues to make sure this suggestion has not already been submitted.
+          required: true
+        - label: This suggestion is relevant to the GitHub Copilot CLI course.
+          required: true
+        - label: I have clearly explained the proposed improvement.
+          required: true

@@ -1,0 +1,92 @@
+name: Question
+description: Ask a question or request help with the GitHub Copilot CLI course.
+title: "[QUESTION] "
+labels:
+  - question
+  - copilot-cli
+assignees:
+  - pathumzcode
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Question / Help
+
+        Use this form if you need help understanding a GitHub Copilot CLI concept, command, lesson, or hands-on activity.
+
+  - type: input
+    id: course-section
+    attributes:
+      label: Course Section
+      description: Which module, lesson, or activity are you working on?
+      placeholder: "e.g., Module 2 - Copilot CLI Commands"
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: Clearly describe your question.
+      placeholder: "Write your question here."
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-tried
+    attributes:
+      label: What Have You Tried?
+      description: Explain what you have already tried.
+      placeholder: "Describe the steps you have already taken."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-result
+    attributes:
+      label: Expected Result
+      description: What result were you expecting?
+      placeholder: "Describe the expected result."
+
+  - type: textarea
+    id: current-result
+    attributes:
+      label: Current Result
+      description: What result are you getting?
+      placeholder: "Describe the current result."
+
+  - type: textarea
+    id: error
+    attributes:
+      label: Error Message
+      description: If applicable, paste the error message.
+      render: shell
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Add screenshot links or brief notes if they help explain your question.
+      placeholder: "Paste a screenshot URL or describe the screenshot."
+
+  - type: textarea
+    id: additional-information
+    attributes:
+      label: Additional Information
+      description: Provide any other relevant information.
+      placeholder: "Add additional context here."
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have clearly explained my question.
+          required: true
+        - label: I have provided the relevant course section.
+          required: true
+        - label: I have explained what I have already tried.
+          required: true
+        - label: I have removed passwords, API keys, access tokens, and other sensitive information.
+          required: true
