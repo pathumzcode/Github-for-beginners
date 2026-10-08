@@ -272,8 +272,6 @@ For example:
 git commit -m "Add introduction for Pathum"
 ```
 
-> ⚠️ **Troubleshooting:** If Git asks you to configure your identity, follow the [Git Configuration Troubleshooting Guide](https://github.com/nisalgunawardhana/Github-for-beginners/blob/main/support%20md%20files/Git-Configuration-Troubleshooting.md).
-
 **Your task:**
 
 * Stage your changes.
@@ -381,13 +379,6 @@ This Pull Request is part of the GitHub for Beginners workshop.
 
 > 💡 **Important:** When contributing to the original workshop repository, ensure the Pull Request targets the original repository, not just another branch in your fork.
 
-### Pull Request Screenshots
-
-![Compare and Pull Request](https://github.com/nisalgunawardhana/Github-for-beginners/raw/main/images/pr-image1.png)
-
-![Review Pull Request](https://github.com/nisalgunawardhana/Github-for-beginners/raw/main/images/pr-image2.png)
-
-![Create Pull Request](https://github.com/nisalgunawardhana/Github-for-beginners/raw/main/images/pr-image3.png)
 
 **Your task:**
 
@@ -450,12 +441,6 @@ Before submitting, make sure you have the following information ready:
 4. Provide your GitHub username and relevant links.
 5. Attach screenshots or other requested evidence.
 6. Submit your completion details.
-
-![Submission Issue](https://github.com/nisalgunawardhana/Github-for-beginners/raw/main/images/issue1.png)
-
-![Submission Details](https://github.com/nisalgunawardhana/Github-for-beginners/raw/main/images/issue2.png)
-
-> **Note:** Follow the current instructions provided by the workshop organizers. Do not assume that a submission template or badge is available unless the repository provides one.
 
 ## 📋 Checklist for Completion
 
