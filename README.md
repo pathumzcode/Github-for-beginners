@@ -1,159 +1,505 @@
-# 🤖 GitHub Copilot CLI 101. 
+# 🐙 GitHub for Beginners — Hands-On Workshop
 
-Welcome to the **GitHub Copilot CLI for Beginners** practice repository! This repository is designed to help beginners learn and practice GitHub Copilot CLI, custom agents, and AI-powered development workflows through practical, hands-on activities.
+Welcome to **GitHub for Beginners!** 🚀
 
-![Banner](images/banner.png)
+This repository is designed to help beginners learn Git and GitHub through practical, step-by-step activities. You will learn how to create branches, manage files, commit changes, push code, and contribute to a repository using Pull Requests.
 
-## 🚀 Introduction and Overview
+Instead of only learning theory, you will complete each activity by working directly with files and commands.
 
-GitHub Copilot CLI brings the power of **GitHub Copilot directly to your terminal**. It allows you to work with an AI coding agent without leaving your command line.
+![GitHub for Beginners Banner](images/banner.jpg)
 
-With GitHub Copilot CLI, you can:
+## 🎯 What You Will Learn
 
-- ✅ **Work from the terminal** - Use Copilot directly from your command line.
-- ✅ **Connect with GitHub** - Work with repositories, issues, and pull requests using natural language.
-- ✅ **Get AI assistance** - Ask Copilot to create, edit, debug, explain, and improve your code.
-- ✅ **Extend its capabilities** - Use MCP servers to connect Copilot with additional tools and services.
-- ✅ **Stay in control** - Review and approve actions before Copilot executes them.
+* Understand the difference between Git and GitHub.
+* Create and manage GitHub repositories.
+* Fork and clone repositories.
+* Create and switch between branches.
+* Create, edit, and organize project files.
+* Stage and commit changes.
+* Push branches to GitHub.
+* Create and review Pull Requests.
+* Work with GitHub Issues.
+* Collaborate with other developers.
 
-### ✨ What We'll Learn
+## 📍 Prerequisites
 
-In this assessment, we'll start from the basics and gradually learn how to use **GitHub Copilot CLI** effectively in the terminal.
+Before starting the workshop, make sure you have the following:
 
-> **💡 Beginner Tip:** You don't need to be an expert to get started. Follow each step carefully and try the commands yourself.
+| Requirement         | Description                                                         |
+| ------------------- | ------------------------------------------------------------------- |
+| GitHub Account      | A GitHub account to fork repositories and create Pull Requests.     |
+| Git                 | Installed and configured on your computer.                          |
+| Visual Studio Code  | Recommended editor for working with project files.                  |
+| Terminal            | Windows PowerShell, Command Prompt, macOS Terminal, or Linux shell. |
+| Internet Connection | Required to access GitHub.                                          |
 
-## ❇️ You will explore here.
+## 🛠️ Installation Guide
 
-- Use GitHub Copilot CLI
-- Create custom agents
-- Automate tasks
-- Apply AI-assisted development
+### 1. Install Git
 
-## 📍 Prerequisites.
+#### For Windows
 
-Before starting, make sure you have the following:
+1. Download Git from [git-scm.com](https://git-scm.com/download/win).
+2. Run the installer and follow the setup wizard.
+3. Use the default settings if you are a beginner.
+4. Open Command Prompt or PowerShell.
+5. Verify the installation:
 
-| **Requirement** | **Details** |
-|---|---|
-| **GitHub account** | Free or paid GitHub account - sign up at [GitHub.com](https://github.com) |
-| **GitHub CLI (`gh`)** | Version 2.x or later - install from the official [GitHub CLI website](https://cli.github.com) |
-| **Git** | [Git](https://git-scm.com/install/) installed and configured on your computer |
-| **GitHub Copilot subscription** | Individual, Business, or Enterprise plan. [See Copilot plans](https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=install-copilot-cli&ref_page=docs) |
-| **A code editor** | Any code editor works; [VS Code](https://code.visualstudio.com/download?_exp_download=d53503e735) is recommended |
-| **Terminal access** | Windows PowerShell/Command Prompt, macOS Terminal, or Linux shell |
-| **Basic Git knowledge** | Familiarity with repositories, branches, commits, push, and pull |
-| **Internet connection** | Required to communicate with GitHub services |
-
-> **Note:** A **GitHub Copilot subscription is not required for basic GitHub CLI usage**. It is only needed if you specifically uses **GitHub Copilot CLI features**.
-
-## 🎯 Getting Started.
-
-### Step 01 - Create a Project Folder
-
-Before installing and using GitHub Copilot CLI, it is recommended to create a **dedicated folder** for this assessment.
-
-#### Example For Windows
- ```
-1. Create a new folder on your Desktop.
-2. Give it a meaningful name, for example:
-GitHub Copilot CLI
+```bash
+git --version
 ```
 
-Then, Navigate to the folder. Open PowerShell or Command Prompt and run the following command:
+#### For macOS
+
+Install Git using Homebrew:
+
+```bash
+brew install git
+```
+
+Alternatively, download Git from [git-scm.com](https://git-scm.com/download/mac).
+
+Verify the installation:
+
+```bash
+git --version
+```
+
+#### For Linux
+
+Install Git using your distribution's package manager.
+
+For Ubuntu or Debian:
+
+```bash
+sudo apt update
+sudo apt install git
+```
+
+Verify the installation:
+
+```bash
+git --version
+```
+
+### 2. Install Visual Studio Code
+
+1. Download VS Code from [code.visualstudio.com](https://code.visualstudio.com/).
+2. Install the application for your operating system.
+3. Follow the official guide to enable the [VS Code command-line tool](https://code.visualstudio.com/docs/editor/command-line).
+
+Verify that the `code` command works:
+
+```bash
+code --version
+```
+
+## 🚀 Getting Started
+
+### Step 1: Fork This Repository
+
+A **Fork** creates your own copy of another person's repository under your GitHub account.
+
+1. Open the original workshop repository.
+2. Click the **Fork** button.
+3. Select your GitHub account as the destination.
+4. Complete the fork process.
+5. Open your fork and verify that it was created successfully.
+
+> 💡 **Best Practice:** Create a folder called `workshop` on your Desktop to organize your workshop projects.
+
+
+### Step 2: Open Your Terminal
+
+Open PowerShell, Command Prompt, or your preferred terminal.
+
+Navigate to your workshop folder.
+
+For Windows:
 
 ```powershell
-cd Desktop\GitHub Copilot CLI
+cd Desktop
+mkdir workshop
+cd workshop
 ```
 
-### Step 02 - Install GitHub Copilot CLI
+If the folder already exists, simply navigate into it instead of creating it again.
 
-After creating your assessment folder, the next step is to install GitHub Copilot CLI.
+### Step 3: Clone Your Fork
 
-#### Homebrew (macOS and Linux):
+**Clone** downloads a copy of your repository to your computer.
 
-```powershell
-brew install copilot-cli
-```
-```powershell
-brew install copilot-cli@prerelease
-```
+Replace `your-username` with your actual GitHub username.
 
-#### WinGet (Windows):
-
-```powershell
-winget install GitHub.Copilot
-```
-```powershell
-winget install GitHub.Copilot.Prerelease
+```bash
+git clone https://github.com/your-username/Github-for-beginners.git
 ```
 
-#### npm (macOS, Linux, and Windows):
+Navigate into the project directory:
 
-```powershell
-npm install -g @github/copilot
-```
-```powershell
-npm install -g @github/copilot@prerelease
+```bash
+cd Github-for-beginners
 ```
 
-#### Verify the installation:
+Open the project in VS Code:
 
-```powershell
-copilot --version
+```bash
+code .
 ```
-#### Output:
 
-![GitHub Copilot CLI Installation](images/installed.png)
+Verify the repository status:
 
+```bash
+git status
+```
 
-# 🛠️ Hands-On Activity Guide
+> 💡 **Tip:** Since you cloned your fork, `origin` normally points to your fork on GitHub.
 
-Once you have completed the required setup, continue with the **Portfolio Agent Hands-On Activity**.
+## 🌿 Branch Practice Exercises
 
-In this activity, you will build and use a custom GitHub Copilot agent to generate a professional portfolio from verified information provided in a CV. You will work with custom agents, skills, project structure, and GitHub Copilot CLI.
+### Exercise 1: Create Your First Branch
 
-[Start the Portfolio Agent Hands-On Activity](<modules/Hands-On Activities/Portfolio Agent/README.md>)
+A **branch** allows you to work on changes separately without directly modifying the `main` branch.
 
-# 🏆 Hands-On Activity Completion & Badge Submission
+Create a branch using your name:
 
-If you have successfully completed the required hands-on activity, you can submit your completion details using the submission form below.
+```bash
+git switch -c feature/your-name-introduction
+```
 
-### 📝 Submit Your Completion
+For example:
 
-[Submit Your Completion Form](https://github.com/pathumzcode/Copilot-CLI-for-beginners/issues/new?template=04-course-completion.yml)
+```bash
+git switch -c feature/pathum-introduction
+```
 
-### 🛑 Before Submitting
+Check your current branch:
 
-Please make sure you have:
+```bash
+git branch
+```
 
-- ✅ Completed the required hands-on activity
-- ✅ Followed the instructions in the activity guide
-- ✅ Completed all required tasks
-- ✅ Provided the requested information and evidence
-- ✅ Submitted your GitHub profile or repository details where required
+The current branch is marked with an asterisk (`*`).
 
-### 🏅 Earn Your Shareable Badge
+**Your task:**
 
-Participants who successfully complete the hands-on activity are eligible to receive the **GitHub Copilot CLI for Beginners – Hands-On Learner Badge**.
+* Create a feature branch using your name.
+* Confirm that you are working on the new branch.
 
-<p align="center">
-  <img src="images/badge.png" alt="GitHub Copilot CLI for Beginners Badge" width="250">
-</p>
+### Exercise 2: Create and Edit Your First File
 
-### 📌 Submission Review
+1. Open the repository in VS Code.
+2. Find the `student-introductions.md` file.
+3. Open the file.
+4. Add your introduction using the template below.
+5. Save your changes.
 
-After submitting your completion form, your submission will be reviewed based on the activity requirements.
+If the file does not exist, create it in the repository root.
 
-Please ensure that all submitted information is accurate and complete.
+#### Introduction Template
 
----
+Add the following Markdown content and replace the example details with your own information:
 
-### 🚀 Keep Learning & Building!
+```markdown
+## Your Name
 
-Thank you for participating in **GitHub Copilot CLI for Beginners**.
+- **GitHub Username:** your-username
+- **Role:** Student / Developer
+- **Interests:** Web Development, Java, GitHub
+- **About Me:** Write a short introduction about yourself.
+- **What I Want to Learn:** Git, GitHub, and Open Source.
+```
 
-**Learn. Build. Create with GitHub Copilot CLI. 🤖💻**
+**Your task:**
 
+* Add your introduction.
+* Use Markdown formatting correctly.
+* Save the file.
 
+### Exercise 3: Check Your Changes
 
+Before committing, check which files have changed.
 
+```bash
+git status
+```
+
+Review the differences:
+
+```bash
+git diff
+```
+
+These commands help you understand what you changed before saving the changes in Git history.
+
+**Your task:**
+
+* Check the modified files.
+* Review your introduction.
+* Make sure you have not accidentally changed unrelated files.
+
+### Exercise 4: Stage and Commit Your Changes
+
+**Staging** selects the changes that will be included in your next commit.
+
+Stage the introduction file:
+
+```bash
+git add student-introductions.md
+```
+
+Alternatively, stage all changes:
+
+```bash
+git add .
+```
+
+Check the staged changes:
+
+```bash
+git status
+```
+
+Commit your changes with a meaningful message:
+
+```bash
+git commit -m "Add introduction for your-name"
+```
+
+For example:
+
+```bash
+git commit -m "Add introduction for Pathum"
+```
+
+> ⚠️ **Troubleshooting:** If Git asks you to configure your identity, follow the [Git Configuration Troubleshooting Guide](https://github.com/nisalgunawardhana/Github-for-beginners/blob/main/support%20md%20files/Git-Configuration-Troubleshooting.md).
+
+**Your task:**
+
+* Stage your changes.
+* Create at least one commit.
+* Use a clear commit message.
+
+### Exercise 5: Create a Second Branch
+
+Practice creating another branch.
+
+First, return to your original branch:
+
+```bash
+git switch main
+```
+
+Create a new branch:
+
+```bash
+git switch -c feature/add-learning-goals
+```
+
+Create a file named `learning-goals.md` and add:
+
+```markdown
+# My Learning Goals
+
+- Learn Git commands.
+- Understand GitHub repositories.
+- Practice branching and merging.
+- Create Pull Requests.
+- Contribute to open-source projects.
+```
+
+Stage and commit the file:
+
+```bash
+git add learning-goals.md
+git commit -m "Add personal learning goals"
+```
+
+**Your task:**
+
+* Create a second branch.
+* Add a new Markdown file.
+* Commit the changes separately from your introduction branch.
+
+### Exercise 6: Push Your Branches to GitHub
+
+A **push** uploads your local commits to a remote repository.
+
+Push your first branch:
+
+```bash
+git push -u origin feature/your-name-introduction
+```
+
+Push your second branch:
+
+```bash
+git push -u origin feature/add-learning-goals
+```
+
+Replace `feature/your-name-introduction` with the actual branch name you created.
+
+Open your fork on GitHub and verify that both branches are available.
+
+**Your task:**
+
+* Push both branches.
+* Confirm that your commits appear on GitHub.
+
+### Exercise 7: Create Your First Pull Request
+
+A **Pull Request (PR)** allows you to propose changes from one branch to another.
+
+1. Open your fork on GitHub.
+2. Select the `feature/your-name-introduction` branch.
+3. Click **Compare & pull request**, if displayed.
+4. Set the original workshop repository as the **base repository**.
+5. Set `main` as the base branch.
+6. Select your fork as the **head repository**.
+7. Select your feature branch as the compare branch.
+8. Add a meaningful title and description.
+9. Click **Create pull request**.
+
+Example title:
+
+```text
+Add introduction for Pathum
+```
+
+Example description:
+
+```markdown
+## Changes Made
+
+- Added my introduction to student-introductions.md.
+- Followed the provided Markdown template.
+
+## Purpose
+
+This Pull Request is part of the GitHub for Beginners workshop.
+```
+
+> 💡 **Important:** When contributing to the original workshop repository, ensure the Pull Request targets the original repository, not just another branch in your fork.
+
+### Pull Request Screenshots
+
+![Compare and Pull Request](https://github.com/nisalgunawardhana/Github-for-beginners/raw/main/images/pr-image1.png)
+
+![Review Pull Request](https://github.com/nisalgunawardhana/Github-for-beginners/raw/main/images/pr-image2.png)
+
+![Create Pull Request](https://github.com/nisalgunawardhana/Github-for-beginners/raw/main/images/pr-image3.png)
+
+**Your task:**
+
+* Create at least one Pull Request.
+* Check the target repository and branch.
+* Review your changes before submitting.
+
+### Exercise 8: Learn About GitHub Issues
+
+An **Issue** is used to report bugs, suggest improvements, ask questions, or track tasks.
+
+1. Open the original workshop repository.
+2. Select the **Issues** tab.
+3. Click **New issue**.
+4. Enter a descriptive title.
+5. Explain your suggestion or report.
+6. Submit the Issue.
+
+Example title:
+
+```text
+Suggest an improvement to the beginner guide
+```
+
+Example description:
+
+```markdown
+## Suggestion
+
+Add another example explaining how Git branches work.
+
+## Reason
+
+This could help beginners understand branching more easily.
+```
+
+**Your task:**
+
+* Create an Issue on the original repository, if you have permission and Issues are enabled.
+* If you do not have permission to create an Issue, follow the workshop organizer's submission instructions instead.
+
+## 🏆 Submission Guidelines
+
+After completing the exercises, submit your work using the workshop's official submission process, if one is provided.
+
+Before submitting, make sure you have the following information ready:
+
+* Your GitHub username.
+* A link to your fork.
+* Links to your Pull Requests.
+* A link to your Issue, if applicable.
+* Screenshots showing your completed work.
+* A short reflection describing what you learned.
+
+### Submission Steps
+
+1. Open the original workshop repository.
+2. Navigate to the submission instructions.
+3. Open the designated submission Issue template, if available.
+4. Provide your GitHub username and relevant links.
+5. Attach screenshots or other requested evidence.
+6. Submit your completion details.
+
+![Submission Issue](https://github.com/nisalgunawardhana/Github-for-beginners/raw/main/images/issue1.png)
+
+![Submission Details](https://github.com/nisalgunawardhana/Github-for-beginners/raw/main/images/issue2.png)
+
+> **Note:** Follow the current instructions provided by the workshop organizers. Do not assume that a submission template or badge is available unless the repository provides one.
+
+## 📋 Checklist for Completion
+
+Use this checklist to track your progress.
+
+* [ ] Created or accessed a GitHub account.
+* [ ] Installed Git.
+* [ ] Installed Visual Studio Code.
+* [ ] Forked the workshop repository.
+* [ ] Cloned the fork to my computer.
+* [ ] Created at least two feature branches.
+* [ ] Added my introduction to `student-introductions.md`.
+* [ ] Created an additional Markdown file.
+* [ ] Staged and committed my changes.
+* [ ] Used meaningful commit messages.
+* [ ] Pushed my branches to GitHub.
+* [ ] Created at least one Pull Request to the original repository.
+* [ ] Reviewed the Pull Request changes.
+* [ ] Created an Issue on the original repository, if permitted.
+* [ ] Prepared the required submission details.
+
+## 📚 Useful Git Commands
+
+| Command                          | Purpose                                |
+| -------------------------------- | -------------------------------------- |
+| `git --version`                  | Check the installed Git version        |
+| `git clone URL`                  | Clone a repository                     |
+| `git status`                     | Check repository status                |
+| `git branch`                     | List local branches                    |
+| `git switch -c branch-name`      | Create and switch to a branch          |
+| `git switch main`                | Switch to the `main` branch            |
+| `git add filename`               | Stage a specific file                  |
+| `git add .`                      | Stage changes in the current directory |
+| `git commit -m "message"`        | Commit staged changes                  |
+| `git diff`                       | View unstaged changes                  |
+| `git log --oneline`              | View commit history                    |
+| `git push -u origin branch-name` | Push a branch and set its upstream     |
+| `git pull`                       | Fetch and integrate remote changes     |
+| `git remote -v`                  | Display configured remote repositories |
+
+## 🚀 Keep Learning and Building!
+
+Congratulations on completing the GitHub for Beginners hands-on workshop!
+
+Keep practicing with personal projects, explore open-source repositories, and collaborate with other developers.
+
+**Learn. Practice. Collaborate. Contribute. 🐙💻**
