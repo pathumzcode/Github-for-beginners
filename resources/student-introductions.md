@@ -19,7 +19,7 @@ This file is a place for workshop participants to introduce themselves while pra
 Copy this template and replace the placeholder details with your own information.
 
 ```markdown
-## 👤 Your Full Name
+## 👤 Tharusha Inuwara
 
 - **GitHub Username:** your-username
 - **Role:** Student / Developer
