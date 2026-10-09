@@ -21,7 +21,7 @@ Copy this template and replace the placeholder details with your own information
 ```markdown
 ## 👤 Your Full Name
 
-- **GitHub Username:** your-username
+- **GitHub Username:** pathumzcode
 - **Role:** Student / Developer
 - **University:** Your University Name
 - **Interests:** Web Development, Programming, Open Source
