@@ -35,6 +35,15 @@ Copy this template and replace the placeholder details with your own information
 ## 🌟 Workshop Participants
 
 <!-- Add your introduction below this line. -->
+## 👤 Hatheecshanaa
+
+- **GitHub Username:** hthee
+- **Role:** Student 
+- **University:** Eastern University
+- **Interests:** Web Development, Programming, Open Source
+- **About Me:** Computer science undergraduate.
+- **What I Want to Learn:** Git, GitHub, Branching, and Pull Requests.
+- **GitHub Profile:** https://github.com/hthee
 
 <!-- Example:
 
