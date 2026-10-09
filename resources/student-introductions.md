@@ -36,23 +36,16 @@ Copy this template and replace the placeholder details with your own information
 
 <!-- Add your introduction below this line. -->
 
-<!-- Example:
+## Raveen Doratiyawa
 
-## 👤 Alex Perera
-
-- **GitHub Username:** alexperera
-- **Role:** Software Engineering Student
-- **University:** Example University
-- **Interests:** Java, Web Development, Open Source
-- **About Me:** I am a student interested in learning software development and collaborating with other developers.
-- **What I Want to Learn:** Git, GitHub, Branching, and Pull Requests.
-- **GitHub Profile:** https://github.com/alexperera
-
--->
+- **GitHub Username:** RaveenDoratiyawa
+- **Role:** Student,Developer
+- **Interests:** Web Development,Mobile app devolopment, Java, GitHub
+- **About Me:** im undergraduate in SLIIT Bsc inforamtion techology spealizing in Software Engineering.
+- **What I Want to Learn:** Git, GitHub,github cli and Open Source.
 
 <!-- Add your introduction above this line. -->
 
----
 
 ## 🤝 Community Guidelines
 
