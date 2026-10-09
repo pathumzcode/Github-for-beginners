@@ -21,9 +21,9 @@ Copy this template and replace the placeholder details with your own information
 ```markdown
 ## 👤 Your Full Name
 
-- **GitHub Username:** your-username
-- **Role:** Student / Developer
-- **University:** Your University Name
+- **GitHub Username:** Jxnxni
+- **Role:** Student
+- **University:** SLIIT
 - **Interests:** Web Development, Programming, Open Source
 - **About Me:** Write a short introduction about yourself.
 - **What I Want to Learn:** Git, GitHub, Branching, and Pull Requests.
