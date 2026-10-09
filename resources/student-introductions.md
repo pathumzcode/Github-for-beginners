@@ -38,15 +38,15 @@ Copy this template and replace the placeholder details with your own information
 
 <!-- Example:
 
-## 👤 Alex Perera
+## 👤 kavindi arunika
 
-- **GitHub Username:** alexperera
-- **Role:** Software Engineering Student
-- **University:** Example University
+- **GitHub Username:** kavindiarunika
+- **Role:** web developer
+- **University:** Eastern university
 - **Interests:** Java, Web Development, Open Source
 - **About Me:** I am a student interested in learning software development and collaborating with other developers.
 - **What I Want to Learn:** Git, GitHub, Branching, and Pull Requests.
-- **GitHub Profile:** https://github.com/alexperera
+- **GitHub Profile:** https://github.com/kavindiarunika
 
 -->
 
